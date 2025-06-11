@@ -37,6 +37,19 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    .dropdown {
+      display: none;
+      background-color: #eee;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+
+    .dropdown-trigger {
+      cursor: pointer;
+      color: #2c3e50;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -48,7 +61,7 @@
   <div class="container">
     <nav>
       <p>Home</p>
-      <p>Narra Thermal</p>
+      <p class="dropdown-trigger" onclick="toggleDropdown()">Narra Thermal</p>
       <p>Aborlan Bunker</p>
       <p>HS Diesel PP</p>
     </nav>
