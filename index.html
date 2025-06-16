@@ -51,19 +51,23 @@
     }
 
     /* Dropdown */
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 30px;
-      left: 0;
-      background-color: #2a2a2a;
-      padding: 10px 0;
-      border-radius: 4px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-      min-width: 200px;
-      z-index: 1000;
-    }
 
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 30px; /* or adjust depending on your padding */
+  left: 0;
+  background-color: #2a2a2a;
+  padding: 10px 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  min-width: 200px;
+  z-index: 1000;
+}
+
+    .dropdown-wrapper {
+  position: relative;
+}
     .dropdown p {
       margin: 0;
       padding: 10px 20px;
@@ -75,7 +79,10 @@
     .dropdown p:hover {
       background-color: #444;
     }
-
+    
+.dropdown-wrapper:hover .dropdown {
+  display: block;
+}
     .nav-item:hover .dropdown {
       display: block;
     }
@@ -99,7 +106,7 @@
     <div class="nav-right">
       <div class="nav-item">Home</div>
 
-      <div class="nav-item">
+      <div class="nav-item dropdown-wrapper">
         NARRA THERMAL 1 ▼
         <div class="dropdown">
           <p>Equipment Status</p>
