@@ -16,16 +16,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.9);
       padding: 10px 20px;
       color: white;
+      backdrop-filter: blur(10px);
       transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
       z-index: 999;
-    }
-    .navbar.scrolled {
-      background-color: rgba(0, 0, 0, 0.7);  /* or try 0.9 for more solid */
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);  /* Safari support */
     }
     /* Left side: logo + title */
     .nav-left {
