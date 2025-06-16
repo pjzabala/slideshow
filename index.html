@@ -142,18 +142,7 @@
       <div class="nav-item search-icon">🔍</div>
     </div>
   </div>
-   <script>
-    const navbar = document.getElementById("navbar");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
-  </script>
-  
+ 
     <main>
       <div class="card">
         <h2>PALAWAN Maintenance</h2>
@@ -176,6 +165,15 @@
       const dropdown = document.getElementById('myDropdown');
       dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     }
+        // Add 'scrolled' class when user scrolls down
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 0) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
   </script>
 </body>
 </html>
