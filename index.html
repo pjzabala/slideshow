@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Dashboard</title>
+  <title>Palawan Maintenance</title>
   <style>
     body {
       margin: 0;
-      height: 2000px; /* For scrolling */
+      font-family: 'Segoe UI', sans-serif;
       background: #eee;
     }
+
     /* Navbar */
     .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.3); /* Transparent initial */
       padding: 10px 20px;
       color: white;
       backdrop-filter: blur(10px);
-      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+      transition: background-color 0.3s ease;
     }
-    /* Left side: logo + title */
+
+    .navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.9); /* Dark when scrolled */
+    }
+
     .nav-left {
       display: flex;
       align-items: center;
@@ -37,7 +46,6 @@
       font-weight: bold;
     }
 
-    /* Right side: nav menu */
     .nav-right {
       display: flex;
       gap: 30px;
@@ -55,14 +63,8 @@
       color: #00bcd4;
     }
 
-    /* Dropdown */
-/* Fix dropdown hover issue */
-.dropdown-wrapper {
+    .dropdown-wrapper {
       position: relative;
-    }
-
-    .dropdown-toggle {
-      cursor: pointer;
     }
 
     .dropdown {
@@ -79,119 +81,120 @@
     }
 
     .dropdown p {
-     margin: 0;
-  padding: 10px 20px;
-  color: white;
-  white-space: nowrap;
-  background-color: transparent;
-  transition: color 0.2s ease;
+      margin: 0;
+      padding: 10px 20px;
+      color: white;
+      white-space: nowrap;
+      background-color: transparent;
+      transition: color 0.2s ease;
     }
 
     .dropdown p:hover {
-  color: #00bcd4; /* or any accent color you like */
-  background-color: transparent; /* <- this keeps background from changing */
+      color: #00bcd4;
     }
 
-    /* THIS is the magic: keeps dropdown visible when hovering trigger OR dropdown */
     .dropdown-wrapper:hover .dropdown {
       display: block;
     }
 
-    .nav-item:hover .dropdown {
-      display: block;
-    }
-
-    /* Search Icon */
-    .search-icon {
-      font-size: 16px;
-      cursor: pointer;
-    }
-
     .hero-section {
-  background-image: url('your-image.jpg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: relative;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 60px; /* Offset for navbar */
-}
+      background-image: url('your-image.jpg'); /* Replace with actual image */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      position: relative;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 60px; /* Offset for navbar */
+    }
 
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: brightness(0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: brightness(0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-.hero-text {
-  text-align: center;
-  font-size: 2rem;
-}
+    .hero-text {
+      text-align: center;
+      font-size: 2rem;
+    }
 
-.hero-text h1 {
-  font-size: 5rem;
-  margin: 0;
-  letter-spacing: 3px;
-}
+    .hero-text h1 {
+      font-size: 5rem;
+      margin: 0;
+      letter-spacing: 3px;
+    }
 
-.hero-text .highlight {
-  display: block;
-  font-size: 4rem;
-  font-weight: 300;
-}
+    .hero-text .highlight {
+      display: block;
+      font-size: 4rem;
+      font-weight: 300;
+    }
 
-.hero-text p {
-  margin-top: 10px;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
+    .hero-text p {
+      margin-top: 10px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
 
-.hero-buttons {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-end;
-  position: absolute;
-  right: 80px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+    .hero-buttons {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+      position: absolute;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
-.hero-btn {
-  border: 1px solid white;
-  padding: 10px 20px;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s;
-  font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.05);
-}
+    .hero-btn {
+      border: 1px solid white;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.05);
+    }
 
-.hero-btn:hover {
-  background: white;
-  color: black;
-}
+    .hero-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    .card {
+      background: white;
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
-<div class="navbar">
-    <!-- Left: Logo and Title -->
+
+  <!-- NAVBAR -->
+  <div class="navbar" id="navbar">
     <div class="nav-left">
       <img src="https://www.dmciholdings.com/themes/dmciholdings/assets/images/logo-dmci.png" alt="Logo">
       <span>PALAWAN MAINTENANCE</span>
     </div>
 
-    <!-- Right: Menu Items -->
     <div class="nav-right">
       <div class="nav-item">Home</div>
 
@@ -210,37 +213,47 @@
       <div class="nav-item">HS DIESEL PP</div>
     </div>
   </div>
-  
-    <main>
-       <div class="hero-overlay">
-    <div class="hero-text">
-      <h1>PALAWAN<br><span class="highlight">MAINTENANCE</span></h1>
-      <p>NARRA THERMAL · ABORLAN BUNKER · HS DIESEL</p>
+
+  <!-- HERO SECTION -->
+  <main>
+    <div class="hero-section">
+      <div class="hero-overlay">
+        <div class="hero-text">
+          <h1>PALAWAN<br><span class="highlight">MAINTENANCE</span></h1>
+          <p>NARRA THERMAL · ABORLAN BUNKER · HS DIESEL</p>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#" class="hero-btn">NARRA THERMAL 1</a>
+          <a href="#" class="hero-btn">ABORLAN BUNKER 1</a>
+          <a href="#" class="hero-btn">HS DIESEL</a>
+        </div>
+      </div>
     </div>
 
-    <div class="hero-buttons">
-      <a href="#" class="hero-btn">NARRA THERMAL 1</a>
-      <a href="#" class="hero-btn">ABORLAN BUNKER 1</a>
-      <a href="#" class="hero-btn">HS DIESEL</a>
+    <!-- CONTENT CARDS -->
+    <div class="card">
+      <h2>Mission Statement</h2>
+      <p>To ensure the safe, reliable, and efficient operation of the Power Plant through comprehensive maintenance practices, skilled personnel, and continuous improvement...</p>
     </div>
-  </div>
-      <div class="card">
-        <h2>Mission Statement</h2>
-        <p>To ensure the safe, reliable, and efficient operation of the Power Plant through comprehensive maintenance practices, skilled personnel, and continuous improvement. We are dedicated to minimizing downtime, optimizing performance, and supporting the overall sustainability of energy production.
-</p>
-      </div>
-      <div class="card">
-        <h2>Vision Statement</h2>
-        <p>To be a leader in power plant maintenance, recognized for our commitment to innovation, reliability, and environmental responsibility. We aim to set the standard for excellence in maintaining energy infrastructure, contributing to a sustainable future.
-</p>
-      </div>
-    </main>
-  </div>
+
+    <div class="card">
+      <h2>Vision Statement</h2>
+      <p>To be a leader in power plant maintenance, recognized for our commitment to innovation, reliability, and environmental responsibility...</p>
+    </div>
+  </main>
+
+  <!-- NAVBAR SCROLL BEHAVIOR -->
   <script>
-    function toggleDropdown() {
-      const dropdown = document.getElementById('myDropdown');
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    }
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
   </script>
+
 </body>
 </html>
