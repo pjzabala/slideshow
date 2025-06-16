@@ -49,6 +49,33 @@
       cursor: pointer;
       color: #FFFFFF;
       font-weight: bold;
+      padding: 10px;
+      
+    .dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1;
+      margin: 0;
+      padding: 10px;
+      cursor: pointer;
+    }
+      
+    .dropdown-content p:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown-container:hover .dropdown-content {
+      display: block;
+    }
     }
   </style>
 </head>
@@ -61,13 +88,15 @@
   <div class="container">
     <nav>
       <p>Home</p>
-      <p class="dropdown-trigger" onclick="toggleDropdown()">Narra Thermal</p>
+      <div class="dropdown-container">
+      <p class="dropdown-trigger">Narra Thermal</p>
       <div id="myDropdown" class="dropdown">
         <p>Equipment Status</p>
         <p>Maintenance Schedule</p>
         <p>History Records</p>
         <p>Technical Information</p>
       </div>
+      <div class="dropdown-container">
       <p>Aborlan Bunker</p>
       <p>HS Diesel PP</p>
     </nav>
