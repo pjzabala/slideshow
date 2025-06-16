@@ -8,7 +8,6 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
     }
     header {
       background-color: #2c3e50;
@@ -20,11 +19,22 @@
       display: flex;
       padding: 1rem;
     }
-    nav {
-      width: 200px;
-      background-color: #34495e;
+    /* Navbar */
+    .navbar {
+      display: flex;
+      background-color: #1a1a1a;
+      padding: 10px 20px;
+    }
+
+    .nav-item {
+      position: relative;
+      padding: 10px 15px;
       color: white;
-      padding: 1rem;
+      cursor: pointer;
+    }
+
+    .nav-item:hover {
+      background-color: #333;
     }
     main {
       flex: 1;
@@ -37,41 +47,52 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .dropdown-container {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-trigger {
-      cursor: pointer;
-      font-weight: bold;
-      color: #ffffff;
-      padding: 10px;
-    }
-
-    .dropdown-content {
+    
+    /* Dropdown */
+    .dropdown {
       display: none;
       position: absolute;
-      background-color: #ffffff;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      border-radius: 6px;
-      z-index: 1;
+      top: 100%;
+      left: 0;
+      background-color: #222;
+      min-width: 250px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+      border-radius: 4px;
+      z-index: 1000;
     }
 
-    .dropdown-content p {
+    .dropdown p {
       margin: 0;
-      padding: 10px;
-      cursor: pointer;
+      padding: 12px 16px;
+      color: white;
+      font-size: 14px;
+      border-bottom: 1px solid #333;
+      white-space: nowrap;
     }
 
-    .dropdown-content p:hover {
-      background-color: transparent;
+    .dropdown p:first-child {
+      color: #00bcd4; /* Accent color */
+      font-weight: bold;
     }
 
-    .dropdown-container:hover .dropdown-content {
+    .dropdown p:hover {
+      background-color: #444;
+    }
+
+    .nav-item:hover .dropdown {
       display: block;
     }
+
+    /* Optional expandable item (fake accordion look) */
+    .expandable {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .expandable span {
+      font-size: 12px;
+      opacity: 0.7;
     }
   </style>
 </head>
