@@ -74,14 +74,17 @@
     }
 
     .dropdown p {
-      margin: 0;
-      padding: 10px 20px;
-      color: white;
-      white-space: nowrap;
+     margin: 0;
+  padding: 10px 20px;
+  color: white;
+  white-space: nowrap;
+  background-color: transparent;
+  transition: color 0.2s ease;
     }
 
     .dropdown p:hover {
-      background-color: #444;
+  color: #00bcd4; /* or any accent color you like */
+  background-color: transparent; /* <- this keeps background from changing */
     }
 
     /* THIS is the magic: keeps dropdown visible when hovering trigger OR dropdown */
