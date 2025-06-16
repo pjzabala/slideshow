@@ -5,28 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple Dashboard</title>
   <style>
-    body {
-      margin: 0;
-      height: 2000px; /* to make scrolling visible */
-    }
+
     /* Navbar */
     .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      z-index: 1000;
-      background-color: transparent;
+      justify-content: space-between;
+      background-color: #1e1e1e;
+      padding: 10px 20px;
       color: white;
     }
-    .navbar.scrolled {
-      background-color: #111; /* dark background */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
+
     /* Left side: logo + title */
     .nav-left {
       display: flex;
@@ -115,7 +104,7 @@
   </style>
 </head>
 <body>
-<div class="navbar" id="navbar">
+<div class="navbar">
     <!-- Left: Logo and Title -->
     <div class="nav-left">
       <img src="https://www.dmciholdings.com/themes/dmciholdings/assets/images/logo-dmci.png" alt="Logo">
@@ -142,7 +131,7 @@
       <div class="nav-item search-icon">🔍</div>
     </div>
   </div>
- 
+  
     <main>
       <div class="card">
         <h2>PALAWAN Maintenance</h2>
@@ -165,15 +154,6 @@
       const dropdown = document.getElementById('myDropdown');
       dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
     }
-        // Add 'scrolled' class when user scrolls down
-    window.addEventListener('scroll', function() {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 0) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
   </script>
 </body>
 </html>
