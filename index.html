@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple Dashboard</title>
   <style>
-
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
     /* Navbar */
     .navbar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       background-color: #1e1e1e;
-      color: white;
       padding: 10px 20px;
+      color: white;
     }
 
     /* Left side: logo + title */
@@ -35,8 +39,8 @@
     /* Right side: nav menu */
     .nav-right {
       display: flex;
+      gap: 30px;
       align-items: center;
-      gap: 25px;
     }
 
     .nav-item {
@@ -53,32 +57,40 @@
     /* Dropdown */
 /* Fix dropdown hover issue */
 .dropdown-wrapper {
-  position: relative;
-}
+      position: relative;
+    }
 
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 30px; /* or adjust depending on your padding */
-  left: 0;
-  background-color: #2a2a2a;
-  padding: 10px 0;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-  min-width: 200px;
-  z-index: 1000;
-}
+    .dropdown-toggle {
+      cursor: pointer;
+    }
 
-.dropdown-wrapper:hover .dropdown {
-  display: block;
-}
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #2a2a2a;
+      border-radius: 4px;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      min-width: 200px;
+      z-index: 1000;
+    }
 
     .dropdown p {
       margin: 0;
       padding: 10px 20px;
       color: white;
-      font-size: 13px;
       white-space: nowrap;
+    }
+
+    .dropdown p:hover {
+      background-color: #444;
+    }
+
+    /* THIS is the magic: keeps dropdown visible when hovering trigger OR dropdown */
+    .dropdown-wrapper:hover .dropdown {
+      display: block;
     }
 
     .nav-item:hover .dropdown {
