@@ -7,7 +7,6 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
       background: #eee;
     }
 
@@ -172,6 +171,21 @@
       color: black;
     }
 
+    .hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Keeps it responsive */
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.hero-buttons.side {
+  flex-direction: column;
+  align-items: flex-start;
+  position: static;
+  transform: none;
+}
     .card {
       background: white;
       margin: 40px auto;
@@ -216,20 +230,20 @@
 
   <!-- HERO SECTION -->
   <main>
-    <div class="hero-section">
-      <div class="hero-overlay">
-        <div class="hero-text">
-          <h1>PALAWAN<br><span class="highlight">MAINTENANCE</span></h1>
-          <p>NARRA THERMAL · ABORLAN BUNKER · HS DIESEL</p>
-        </div>
-
-        <div class="hero-buttons">
-          <a href="#" class="hero-btn">NARRA THERMAL 1</a>
-          <a href="#" class="hero-btn">ABORLAN BUNKER 1</a>
-          <a href="#" class="hero-btn">HS DIESEL</a>
-        </div>
-      </div>
+<div class="hero-overlay">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>PALAWAN<br><span class="highlight">MAINTENANCE</span></h1>
+      <p>NARRA THERMAL · ABORLAN BUNKER · HS DIESEL</p>
     </div>
+
+    <div class="hero-buttons side">
+      <a href="#" class="hero-btn">NARRA THERMAL 1</a>
+      <a href="#" class="hero-btn">ABORLAN BUNKER 1</a>
+      <a href="#" class="hero-btn">HS DIESEL</a>
+    </div>
+  </div>
+</div>
 
     <!-- CONTENT CARDS -->
     <div class="card">
